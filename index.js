@@ -18,8 +18,11 @@ mongoose.connect(config.url,(err)=>{
 
 
 });
+
+app.use(express.static(__dirname + '/client/dist/'));
+const path=require('path');
 app.get('*',(req,res) =>{
-	res.send('<h1>Hello kkkworld</h1>');
+	res.send(path.join(__dirname + '/client/dist/'));
 });
 
 app.listen(8080, () =>
